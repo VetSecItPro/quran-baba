@@ -36,10 +36,10 @@ export function CreateForm() {
       mode,
       gender,
       relationship: { en: relEn || "Baba", ar: relAr || suggestArabicRelationship(relEn) || "بابا" },
-      name: { en: nameEn || "—", ar: nameAr || "—" },
+      name: { en: nameEn || "…", ar: nameAr || "…" },
       dates: {
-        en: formatDateRangeEnglish(startDate, endDate) || "—",
-        ar: formatDateRangeArabic(startDate, endDate) || "—",
+        en: formatDateRangeEnglish(startDate, endDate) || "…",
+        ar: formatDateRangeArabic(startDate, endDate) || "…",
       },
       seed: 7,
       clean: true,

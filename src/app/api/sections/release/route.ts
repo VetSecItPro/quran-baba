@@ -3,7 +3,7 @@ import { clientIp } from "@/lib/turnstile-server";
 import { consumeRateLimit } from "@/lib/rate-limit-server";
 
 // Release uses the per-claim release_token as the auth (which only the claimant has).
-// No Turnstile required — possession of the token IS the proof. CSP blocks XSS exfil.
+// No Turnstile required - possession of the token IS the proof. CSP blocks XSS exfil.
 
 type Body = {
   pageId: string;

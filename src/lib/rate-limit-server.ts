@@ -27,7 +27,7 @@ export async function consumeRateLimit(action: RateAction, ip: string): Promise<
   const sinceIso = new Date(Date.now() - windowSeconds * 1000).toISOString();
 
   // Count recent hits for this (ip, action) within the window.
-  // rate_limits isn't in our hand-written Database types — we type the client loosely above.
+  // rate_limits isn't in our hand-written Database types - we type the client loosely above.
   const { count, error: countErr } = await sb
     .from("rate_limits")
     .select("id", { head: true, count: "exact" })
@@ -49,7 +49,7 @@ export async function consumeRateLimit(action: RateAction, ip: string): Promise<
   // Record this hit.
   await sb.from("rate_limits").insert({ ip, action });
 
-  // Opportunistic GC — keep table from growing forever. ~1% of requests trigger cleanup.
+  // Opportunistic GC - keep table from growing forever. ~1% of requests trigger cleanup.
   if (Math.random() < 0.01) {
     sb.rpc("gc_rate_limits", { p_keep_seconds: 7200 }).then(() => {});
   }

@@ -53,7 +53,7 @@ export function SectionDetail({
   const entry = getQuarter(section.hizb, section.quarterInHizb);
   const juz = Math.ceil(section.hizb / 2);
 
-  // Deep-link to quran.com — same-surah ranges become a range URL, cross-surah falls back to start.
+  // Deep-link to quran.com - same-surah ranges become a range URL, cross-surah falls back to start.
   const readUrl =
     entry.start.surah === entry.end.surah
       ? `https://quran.com/${entry.start.surah}/${entry.start.ayah}-${entry.end.ayah}`
@@ -74,10 +74,10 @@ export function SectionDetail({
         <div className="px-6 py-5 border-b border-gold/20 flex items-baseline justify-between gap-4">
           <div>
             <h3 id="section-detail-title" className="font-serif text-2xl font-semibold text-ink">
-              Hizb {section.hizb} — {QUARTER_LABEL_EN[section.quarterInHizb]}
+              Hizb {section.hizb} · {QUARTER_LABEL_EN[section.quarterInHizb]}
             </h3>
             <p className="font-arabic text-gold-deep text-lg mt-1" dir="rtl">
-              الحزب {section.hizb} — {QUARTER_LABEL_AR[section.quarterInHizb]}
+              الحزب {section.hizb} · {QUARTER_LABEL_AR[section.quarterInHizb]}
             </p>
             <p className="text-xs text-ink/60 mt-1">
               Juz {juz} <span className="text-gold-deep">|</span>{" "}

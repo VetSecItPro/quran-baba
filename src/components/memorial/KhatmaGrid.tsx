@@ -10,7 +10,7 @@ import type { SectionRow } from "@/lib/supabase";
 type Props = {
   /** Live Supabase-backed mode. */
   slug?: string;
-  /** Preview mode (no DB) for /create — all available, no progress bar. */
+  /** Preview mode (no DB) for /create - all available, no progress bar. */
   clean?: boolean;
   /** Legacy random seed for the hardcoded Baba page. */
   seed?: number;
@@ -184,8 +184,8 @@ function SectionCard({ row, onClick }: { row: SectionRow; onClick: () => void })
       className={cardClasses(section.status)}
       aria-label={`Hizb ${section.hizb} ${section.quarter}, ${section.status}`}
     >
-      <span className="text-[9px] uppercase tracking-wider opacity-70 leading-none">
-        Hizb · <span className="font-arabic normal-case">حزب</span>
+      <span className="text-[10px] tracking-wide opacity-70 leading-none">
+        Hizb · <span className="font-arabic">حزب</span>
       </span>
       <span className="text-xl font-semibold leading-none mt-0.5">{section.hizb}</span>
       <span className="text-sm opacity-80 leading-none mt-0.5">{section.quarter}</span>

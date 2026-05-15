@@ -1,6 +1,6 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
-// Public row types — what the client is ALLOWED to read.
+// Public row types - what the client is ALLOWED to read.
 // edit_token (pages) and release_token (sections) are intentionally absent:
 // PostgREST denies them via column-level grants. Tokens live in client localStorage only.
 

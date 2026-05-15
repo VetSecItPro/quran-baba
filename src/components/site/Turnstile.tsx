@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 // Set NEXT_PUBLIC_TURNSTILE_SITE_KEY in .env.local. Dev defaults to Cloudflare's "always passes" test key.
 // Production: get real keys at https://dash.cloudflare.com → Turnstile → Add Site.
 
-const TEST_SITE_KEY = "1x00000000000000000000AA"; // Cloudflare test key — always passes
+const TEST_SITE_KEY = "1x00000000000000000000AA"; // Cloudflare test key - always passes
 const SCRIPT_URL = "https://challenges.cloudflare.com/turnstile/v0/api.js";
 
 declare global {
@@ -79,7 +79,7 @@ export function Turnstile({ onToken, className }: Props) {
         });
       })
       .catch(() => {
-        /* Network failure — fail closed; client must retry */
+        /* Network failure - fail closed; client must retry */
       });
 
     return () => {

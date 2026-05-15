@@ -1,20 +1,18 @@
 import Link from "next/link";
-import { Lantern } from "@/components/ornaments/Lantern";
-import { Rehal } from "@/components/ornaments/Rehal";
-import { ZelligeBand } from "@/components/ornaments/ZelligeBand";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <main className="bg-cream min-h-screen">
-      {/* Top zellige strip */}
-      <ZelligeBand className="w-full h-6 text-gold-deep/60" />
+      {/* Top zellige border */}
+      <div
+        className="w-full h-8 md:h-10 bg-repeat-x bg-contain bg-center opacity-90"
+        style={{ backgroundImage: "url('/ornaments/zellige-strip.png')" }}
+        aria-hidden="true"
+      />
 
       {/* Hero */}
       <section className="relative px-6 pt-12 md:pt-16 pb-16 max-w-5xl mx-auto text-center">
-        {/* Lanterns flanking the hero */}
-        <Lantern className="hidden md:block absolute left-4 top-6 w-14 h-24 text-gold-deep/55" />
-        <Lantern className="hidden md:block absolute right-4 top-6 w-14 h-24 text-gold-deep/55" />
-
         <p className="font-arabic text-gold-deep text-3xl md:text-4xl leading-none mb-4" dir="rtl">
           ﷽
         </p>
@@ -25,12 +23,21 @@ export default function Home() {
           قرآنٌ لمن تحب
         </p>
 
-        {/* Rehal (open Qur'an on a reading stand) — gold, sits between title and body */}
-        <Rehal className="mx-auto mt-8 w-28 h-20 md:w-32 md:h-24 text-gold-deep" />
+        {/* Hero ornament panel */}
+        <div className="mt-10 mx-auto max-w-3xl rounded-2xl overflow-hidden border border-gold/30 shadow-lg shadow-gold/10">
+          <Image
+            src="/ornaments/hero-arabesque.jpg"
+            alt="Two Moroccan lanterns flank an open Qur'an on a wooden rehal, framed with gilded arabesque ornament."
+            width={1792}
+            height={768}
+            priority
+            className="w-full h-auto"
+          />
+        </div>
 
-        <p className="text-ink/70 text-lg md:text-xl mt-6 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-ink/70 text-lg md:text-xl mt-8 max-w-2xl mx-auto leading-relaxed">
           Create a memorial or wellbeing page in minutes. Family and friends claim sections of the
-          Qur&apos;an to read together — at home, abroad, or across generations.
+          Qur&apos;an to read together, at home, abroad, or across generations.
         </p>
         <p
           className="font-arabic text-ink/70 text-lg md:text-xl mt-3 max-w-2xl mx-auto leading-loose"
@@ -101,7 +108,7 @@ export default function Home() {
             n={1}
             titleEn="Create the page"
             titleAr="أنشئ الصفحة"
-            bodyEn="Enter the relationship, name, and dates — in English and Arabic."
+            bodyEn="Enter the relationship, name, and dates, in English and Arabic."
             bodyAr="أدخل صلة القرابة والاسم والتواريخ بالإنجليزية والعربية."
           />
           <Step
@@ -142,7 +149,7 @@ export default function Home() {
             &ldquo;Whoever recites a letter from the Book of Allah will be credited with a good deed,
             and a good deed gets a tenfold reward.&rdquo;
           </p>
-          <p className="text-ink/50 text-sm mt-2">— Prophet Muhammad ﷺ (Tirmidhi)</p>
+          <p className="text-ink/50 text-sm mt-2">Prophet Muhammad ﷺ · Tirmidhi</p>
         </div>
       </section>
 
@@ -156,8 +163,12 @@ export default function Home() {
         <p className="text-ink/40 text-xs mt-4">QuranForBaba · 2026</p>
       </footer>
 
-      {/* Bottom zellige strip */}
-      <ZelligeBand className="w-full h-6 text-gold-deep/60" />
+      {/* Bottom zellige border */}
+      <div
+        className="w-full h-8 md:h-10 bg-repeat-x bg-contain bg-center opacity-90"
+        style={{ backgroundImage: "url('/ornaments/zellige-strip.png')" }}
+        aria-hidden="true"
+      />
     </main>
   );
 }

@@ -15,7 +15,7 @@ export function Footer({ mode }: { mode: "memorial" | "living" }) {
         <blockquote className="mt-8 text-ink/80 text-sm leading-relaxed">
           &ldquo;Whoever recites a letter from the Book of Allah will be credited with a good deed,
           and a good deed gets a tenfold reward.&rdquo;
-          <span className="block text-ink/50 mt-1">— Prophet Muhammad ﷺ (Tirmidhi)</span>
+          <span className="block text-ink/50 mt-1">Prophet Muhammad ﷺ · Tirmidhi</span>
         </blockquote>
 
         <p className="mt-10 text-ink/60 text-sm">

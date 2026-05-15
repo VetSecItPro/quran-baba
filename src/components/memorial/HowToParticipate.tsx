@@ -12,7 +12,7 @@ export function HowToParticipate() {
         </div>
         <p className="text-ink/80 leading-relaxed text-base md:text-lg">
           Each card represents a <strong className="text-emerald-deep">1/4 Hizb</strong> section of
-          the Qur&apos;an. Tap any card to see where to start and stop — Surah name, Ayah numbers,
+          the Qur&apos;an. Tap any card to see where to start and stop: Surah name, Ayah numbers,
           and the opening and closing words.
         </p>
         <p

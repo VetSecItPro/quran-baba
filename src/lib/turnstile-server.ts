@@ -1,6 +1,6 @@
 import "server-only";
 
-const TEST_SECRET = "1x0000000000000000000000000000000AA"; // Cloudflare test secret — always passes
+const TEST_SECRET = "1x0000000000000000000000000000000AA"; // Cloudflare test secret - always passes
 const VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 
 export async function verifyTurnstileToken(token: string, remoteIp?: string): Promise<boolean> {
