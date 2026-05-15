@@ -1,17 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
+import { PageFrame } from "@/components/site/PageFrame";
 
 export default function Home() {
   return (
-    <main className="bg-cream min-h-screen">
-      {/* Top zellige border */}
-      <div
-        className="w-full h-8 md:h-10 bg-repeat-x bg-contain bg-center opacity-90"
-        style={{ backgroundImage: "url('/ornaments/zellige-strip.png')" }}
-        aria-hidden="true"
-      />
-
-      {/* Hero */}
+    <>
+      <PageFrame />
+      {/* Inset so content sits inside the frame on md+ */}
+      <main className="bg-cream min-h-screen md:px-10 lg:px-14 md:pt-10 lg:pt-14 md:pb-10 lg:pb-14">
+        {/* Hero */}
       <section className="relative px-6 pt-12 md:pt-16 pb-16 max-w-5xl mx-auto text-center">
         <p className="font-arabic text-gold-deep text-3xl md:text-4xl leading-none mb-4" dir="rtl">
           ﷽
@@ -164,13 +161,8 @@ export default function Home() {
         <p className="text-ink/40 text-xs mt-4">QuranForBaba · 2026</p>
       </footer>
 
-      {/* Bottom zellige border */}
-      <div
-        className="w-full h-8 md:h-10 bg-repeat-x bg-contain bg-center opacity-90"
-        style={{ backgroundImage: "url('/ornaments/zellige-strip.png')" }}
-        aria-hidden="true"
-      />
-    </main>
+      </main>
+    </>
   );
 }
 

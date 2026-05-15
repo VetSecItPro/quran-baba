@@ -45,26 +45,9 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      {/* Inset the page so content never lands under the fixed side ornaments. */}
-      <body className="min-h-screen flex flex-col md:pl-10 md:pr-10 lg:pl-14 lg:pr-14">
-        {/* Vertical zellige ornament on each edge - desktop only */}
-        <div
-          aria-hidden="true"
-          className="fixed inset-y-0 left-0 w-10 lg:w-14 hidden md:block pointer-events-none z-20 bg-repeat-y"
-          style={{
-            backgroundImage: "url('/ornaments/zellige-column.jpg')",
-            backgroundSize: "100% auto",
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="fixed inset-y-0 right-0 w-10 lg:w-14 hidden md:block pointer-events-none z-20 bg-repeat-y"
-          style={{
-            backgroundImage: "url('/ornaments/zellige-column.jpg')",
-            backgroundSize: "100% auto",
-          }}
-        />
-
+      {/* Ornament frame is applied per-page (only on landing + memorial pages),
+          since /create has a split tool layout that conflicts with edge bars. */}
+      <body className="min-h-screen flex flex-col">
         <SiteHeader />
         <div className="relative z-10">{children}</div>
       </body>

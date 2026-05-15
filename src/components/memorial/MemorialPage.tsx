@@ -6,18 +6,9 @@ import { DuaCard } from "./DuaCard";
 import { HowToParticipate } from "./HowToParticipate";
 import { KhatmaGrid } from "./KhatmaGrid";
 import { Footer } from "./Footer";
+import { PageFrame } from "@/components/site/PageFrame";
 
 import type { Gender } from "@/lib/supabase";
-
-function ZelligeBorder() {
-  return (
-    <div
-      className="w-full h-8 md:h-10 bg-repeat-x bg-contain bg-center opacity-90"
-      style={{ backgroundImage: "url('/ornaments/zellige-strip.png')" }}
-      aria-hidden="true"
-    />
-  );
-}
 
 export type MemorialConfig = {
   mode: "memorial" | "living";
@@ -34,10 +25,14 @@ export type MemorialConfig = {
 };
 
 export function MemorialPage(cfg: MemorialConfig) {
+  // Preview mode (used inside /create) skips the global frame so the
+  // tool's own split layout governs the page chrome.
+  const isPreview = cfg.clean === true;
   return (
-    <main className="bg-cream min-h-screen">
-      <ZelligeBorder />
-      <Hero
+    <>
+      {!isPreview && <PageFrame />}
+      <main className={`bg-cream min-h-screen ${isPreview ? "" : "md:px-10 lg:px-14 md:pt-10 lg:pt-14 md:pb-10 lg:pb-14"}`}>
+        <Hero
         mode={cfg.mode}
         gender={cfg.gender}
         relationship={cfg.relationship}
@@ -67,7 +62,7 @@ export function MemorialPage(cfg: MemorialConfig) {
       <HowToParticipate />
       <KhatmaGrid slug={cfg.slug} clean={cfg.clean} seed={cfg.seed} />
       <Footer mode={cfg.mode} />
-      <ZelligeBorder />
-    </main>
+      </main>
+    </>
   );
 }
