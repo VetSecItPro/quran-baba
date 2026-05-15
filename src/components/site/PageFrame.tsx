@@ -12,17 +12,17 @@
 export function PageFrame() {
   return (
     <>
-      {/* Top horizontal band - full width */}
+      {/* Top horizontal band - sits directly below the sticky 56px-tall header */}
       <div
         aria-hidden="true"
-        className="fixed top-0 left-0 right-0 h-10 lg:h-14 z-20 bg-repeat-x bg-center pointer-events-none"
+        className="fixed top-14 left-0 right-0 h-10 lg:h-14 z-20 bg-repeat-x bg-center pointer-events-none"
         style={{
           backgroundImage: "url('/ornaments/zellige-strip.png')",
           backgroundSize: "auto 100%",
         }}
       />
 
-      {/* Bottom horizontal band - full width */}
+      {/* Bottom horizontal band - full width at the viewport bottom */}
       <div
         aria-hidden="true"
         className="fixed bottom-0 left-0 right-0 h-10 lg:h-14 z-20 bg-repeat-x bg-center pointer-events-none"
@@ -32,10 +32,10 @@ export function PageFrame() {
         }}
       />
 
-      {/* Left vertical column - tucked between top and bottom bands */}
+      {/* Left vertical column - starts where top band ends, stops where bottom band starts */}
       <div
         aria-hidden="true"
-        className="fixed left-0 top-10 bottom-10 lg:top-14 lg:bottom-14 w-10 lg:w-14 z-20 bg-repeat-y bg-center pointer-events-none hidden md:block"
+        className="fixed left-0 top-24 bottom-10 lg:top-28 lg:bottom-14 w-10 lg:w-14 z-20 bg-repeat-y bg-center pointer-events-none hidden md:block"
         style={{
           backgroundImage: "url('/ornaments/zellige-column.jpg')",
           backgroundSize: "100% auto",
@@ -45,7 +45,7 @@ export function PageFrame() {
       {/* Right vertical column */}
       <div
         aria-hidden="true"
-        className="fixed right-0 top-10 bottom-10 lg:top-14 lg:bottom-14 w-10 lg:w-14 z-20 bg-repeat-y bg-center pointer-events-none hidden md:block"
+        className="fixed right-0 top-24 bottom-10 lg:top-28 lg:bottom-14 w-10 lg:w-14 z-20 bg-repeat-y bg-center pointer-events-none hidden md:block"
         style={{
           backgroundImage: "url('/ornaments/zellige-column.jpg')",
           backgroundSize: "100% auto",

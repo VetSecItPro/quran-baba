@@ -31,7 +31,7 @@ export function MemorialPage(cfg: MemorialConfig) {
   return (
     <>
       {!isPreview && <PageFrame />}
-      <main className={`bg-cream min-h-screen ${isPreview ? "" : "md:px-10 lg:px-14 md:pt-10 lg:pt-14 md:pb-10 lg:pb-14"}`}>
+      <main className={`bg-cream min-h-screen ${isPreview ? "" : "md:px-10 lg:px-14 md:pt-10 lg:pt-14 md:pb-10 lg:pb-14 mt-10 lg:mt-14"}`}>
         <Hero
         mode={cfg.mode}
         gender={cfg.gender}
