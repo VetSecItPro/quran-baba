@@ -20,9 +20,19 @@ export async function consumeRateLimit(action: RateAction, ip: string): Promise<
     return { ok: true, remaining: -1 };
   }
   const { max, windowSeconds } = LIMITS[action];
+  // rate_limits + the gc rpc aren't in the hand-written Database types
+  // (we keep that surface minimal, see src/lib/supabase.ts). Cast the client
+  // to a loose shape just for this file's queries.
+  type LooseQB = {
+    select: (cols: string, opts?: { head?: boolean; count?: "exact" }) => LooseQB;
+    insert: (row: Record<string, unknown>) => Promise<unknown>;
+    eq: (col: string, val: string | number) => LooseQB;
+    gte: (col: string, val: string | number) => LooseQB;
+    then: PromiseLike<{ count: number | null; error: { message: string } | null }>["then"];
+  };
   const sb = supabaseAdmin() as unknown as {
-    from: (t: string) => any;
-    rpc: (n: string, a: any) => Promise<any>;
+    from: (t: string) => LooseQB;
+    rpc: (n: string, a: Record<string, unknown>) => Promise<unknown>;
   };
   const sinceIso = new Date(Date.now() - windowSeconds * 1000).toISOString();
 
