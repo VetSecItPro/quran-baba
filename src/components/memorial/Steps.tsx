@@ -35,7 +35,7 @@ export function Steps() {
             key={s.n}
             className="bg-cream-soft border border-gold/30 rounded-2xl p-5 text-center"
           >
-            <div className="mx-auto w-9 h-9 rounded-full bg-gold text-ink flex items-center justify-center font-semibold mb-3">
+            <div className="mx-auto w-9 h-9 rounded-full bg-gold text-stone-900 flex items-center justify-center font-bold mb-3">
               {s.n}
             </div>
             <h3 className="font-serif text-lg font-semibold text-ink">{s.en.title}</h3>
