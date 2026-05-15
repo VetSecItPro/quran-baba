@@ -18,11 +18,13 @@ type Props = {
 
 function cardClasses(status: Section["status"]) {
   const base =
-    "relative aspect-square rounded-xl border-2 flex flex-col items-center justify-center text-center transition-colors shadow-sm";
+    "relative aspect-square rounded-xl border-2 flex flex-col items-center justify-center text-center transition-all shadow-sm";
   if (status === "completed")
-    return `${base} bg-emerald text-white border-emerald shadow-emerald/20`;
-  if (status === "claimed") return `${base} bg-gold text-white border-gold-deep`;
-  return `${base} bg-cream-soft text-ink/80 border-gold/30 hover:border-gold`;
+    return `${base} bg-emerald text-white border-emerald shadow-md shadow-emerald/30 hover:shadow-lg`;
+  if (status === "claimed")
+    return `${base} bg-gold text-white border-gold-deep shadow-md shadow-gold/20 hover:shadow-lg`;
+  // Available: warm pale-gold "blank coin" that lifts on hover.
+  return `${base} bg-gold-soft/20 text-ink/80 border-gold/45 hover:bg-gold-soft/35 hover:border-gold-deep hover:shadow-md hover:-translate-y-0.5`;
 }
 
 function toSection(r: SectionRow): Section {
