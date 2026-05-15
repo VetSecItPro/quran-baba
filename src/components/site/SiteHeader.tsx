@@ -14,12 +14,6 @@ export function SiteHeader() {
           </span>
         </Link>
         <nav className="flex items-center gap-3">
-          <Link
-            href="/create"
-            className="hidden sm:inline-flex px-3 py-1.5 rounded-full text-sm border border-emerald/40 text-emerald-deep hover:bg-emerald hover:text-white transition-colors"
-          >
-            Create a page
-          </Link>
           <ThemeToggle />
         </nav>
       </div>

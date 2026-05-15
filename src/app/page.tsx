@@ -20,7 +20,7 @@ export default function Home() {
           A Qur&apos;an for someone you love
         </h1>
         <p className="font-arabic text-gold-deep text-3xl md:text-4xl mt-3" dir="rtl">
-          قرآنٌ لمن تحب
+          قُرْآنٌ لِمَنْ تُحِبُّ
         </p>
 
         {/* Hero ornament panel */}
@@ -43,8 +43,9 @@ export default function Home() {
           className="font-arabic text-ink/70 text-lg md:text-xl mt-3 max-w-2xl mx-auto leading-loose"
           dir="rtl"
         >
-          أنشئ صفحة تذكارية أو للدعاء بالشفاء في دقائق. يحجز الأهل والأصدقاء أجزاءً من القرآن
-          الكريم لقراءتها معًا، في البيت، في الغربة، أو عبر الأجيال.
+          أَنْشِئْ صَفْحَةً تِذْكَارِيَّةً أَوْ لِلدُّعَاءِ بِالشِّفَاءِ فِي دَقَائِقَ. يَحْجُزُ
+          الْأَهْلُ وَالْأَصْدِقَاءُ أَجْزَاءً مِنَ الْقُرْآنِ الْكَرِيمِ لِقِرَاءَتِهَا مَعًا،
+          فِي الْبَيْتِ، فِي الْغُرْبَةِ، أَوْ عَبْرَ الْأَجْيَالِ.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">

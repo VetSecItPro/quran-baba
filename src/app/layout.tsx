@@ -46,8 +46,26 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="min-h-screen flex flex-col">
+        {/* Vertical zellige ornament on each edge - desktop only */}
+        <div
+          aria-hidden="true"
+          className="fixed inset-y-0 left-0 w-6 lg:w-10 hidden md:block pointer-events-none z-0 bg-repeat-y opacity-70"
+          style={{
+            backgroundImage: "url('/ornaments/zellige-column.jpg')",
+            backgroundSize: "100% auto",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="fixed inset-y-0 right-0 w-6 lg:w-10 hidden md:block pointer-events-none z-0 bg-repeat-y opacity-70"
+          style={{
+            backgroundImage: "url('/ornaments/zellige-column.jpg')",
+            backgroundSize: "100% auto",
+          }}
+        />
+
         <SiteHeader />
-        {children}
+        <div className="relative z-10">{children}</div>
       </body>
     </html>
   );

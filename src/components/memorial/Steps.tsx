@@ -1,18 +1,28 @@
+// Arabic text vowelized (harakat / tashkeel) so non-native readers can pronounce.
 const steps = [
   {
     n: 1,
-    en: { title: "Choose a Section", body: "Tap any golden card to claim it." },
-    ar: { title: "اختر قسماً", body: "اضغط على أي بطاقة ذهبية لحجزها." },
+    en: { title: "Choose a Section", body: "Tap any card to claim it." },
+    ar: {
+      title: "اِخْتَرْ قِسْمًا",
+      body: "اِضْغَطْ عَلَى أَيِّ بِطَاقَةٍ لِحَجْزِهَا.",
+    },
   },
   {
     n: 2,
     en: { title: "Recite", body: "Complete your portion in your own time." },
-    ar: { title: "اقرأ", body: "أكمل قسمك في الوقت المناسب لك." },
+    ar: {
+      title: "اِقْرَأْ",
+      body: "أَكْمِلْ قِسْمَكَ فِي الْوَقْتِ الْمُنَاسِبِ لَكَ.",
+    },
   },
   {
     n: 3,
     en: { title: "Mark Complete", body: "Return and mark your section finished." },
-    ar: { title: "أتممت القراءة", body: "عد وضع علامة على القسم بأنه مكتمل." },
+    ar: {
+      title: "أَتْمَمْتُ الْقِرَاءَةَ",
+      body: "عُدْ وَضَعْ عَلَامَةً عَلَى الْقِسْمِ بِأَنَّهُ مُكْتَمِلٌ.",
+    },
   },
 ];
 
