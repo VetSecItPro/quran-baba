@@ -49,7 +49,7 @@ export default function RootLayout({
         {/* Vertical zellige ornament on each edge - desktop only */}
         <div
           aria-hidden="true"
-          className="fixed inset-y-0 left-0 w-6 lg:w-10 hidden md:block pointer-events-none z-0 bg-repeat-y opacity-70"
+          className="fixed inset-y-0 left-0 w-10 lg:w-14 hidden md:block pointer-events-none z-20 bg-repeat-y"
           style={{
             backgroundImage: "url('/ornaments/zellige-column.jpg')",
             backgroundSize: "100% auto",
@@ -57,7 +57,7 @@ export default function RootLayout({
         />
         <div
           aria-hidden="true"
-          className="fixed inset-y-0 right-0 w-6 lg:w-10 hidden md:block pointer-events-none z-0 bg-repeat-y opacity-70"
+          className="fixed inset-y-0 right-0 w-10 lg:w-14 hidden md:block pointer-events-none z-20 bg-repeat-y"
           style={{
             backgroundImage: "url('/ornaments/zellige-column.jpg')",
             backgroundSize: "100% auto",
