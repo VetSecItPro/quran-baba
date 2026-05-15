@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <PageFrame />
       {/* Inset so content sits inside the frame on md+ */}
-      <main className="bg-cream min-h-screen md:px-10 lg:px-14 md:pt-10 lg:pt-14 md:pb-10 lg:pb-14 mt-10 lg:mt-14">
+      <main className="bg-cream min-h-screen md:px-6 lg:px-8 md:pt-6 lg:pt-8 md:pb-6 lg:pb-8 mt-6 lg:mt-8">
         {/* Hero */}
       <section className="relative px-6 pt-12 md:pt-16 pb-16 max-w-5xl mx-auto text-center">
         <p className="font-arabic text-gold-deep text-3xl md:text-4xl leading-none mb-4" dir="rtl">
