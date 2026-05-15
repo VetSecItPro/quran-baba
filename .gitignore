@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.env.local
+
+# /sec-ship artifacts
+.sec-ship-reports/
+.sec-ship-history.json
