@@ -1,0 +1,63 @@
+# QuranBaba CI - typecheck, lint, build, build artifact verification.
+# Triggered on push to main and on pull requests. Auto-cancels older runs
+# on the same branch via the concurrency group below.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+    # Skip if only docs / non-code changed.
+    paths-ignore:
+      - "**.md"
+      - "LICENSE"
+      - ".vscode/**"
+  pull_request:
+    branches: [main]
+    paths-ignore:
+      - "**.md"
+      - "LICENSE"
+      - ".vscode/**"
+
+# Cancel older runs on the same branch to save runner minutes.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+# Principle of least privilege for the default token.
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: typecheck · lint · build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      # Action versions pinned to commit SHAs (supply-chain safety) with
+      # the tag in a trailing comment so a human can read the version.
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+
+      - uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4.0.3
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: TypeScript typecheck
+        run: npx tsc --noEmit
+
+      - name: ESLint
+        run: npm run lint
+
+      - name: Production build
+        run: npm run build
+        env:
+          # CI build uses placeholder env vars so the build doesn't fail
+          # before the supabase client init. Real values live in Vercel.
+          NEXT_PUBLIC_SUPABASE_URL: https://placeholder.supabase.co
+          NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: sb_publishable_placeholder
+          SUPABASE_SERVICE_ROLE_KEY: placeholder

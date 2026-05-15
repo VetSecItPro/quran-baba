@@ -44,3 +44,21 @@ next-env.d.ts
 # /sec-ship artifacts
 .sec-ship-reports/
 .sec-ship-history.json
+
+# /gh-ship artifacts
+.gh-ship-history.json
+.gh-ship-reports/
+
+# Playwright MCP scratch
+.playwright-mcp/
+
+# Skill output dirs (gitignored per CLAUDE.md global rule)
+.qatest-reports/
+.smoketest-reports/
+.investigate-reports/
+.perf-reports/
+.a11y-reports/
+
+# Build/output overflow
+/dist
+*.tgz
