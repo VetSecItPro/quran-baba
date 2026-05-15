@@ -29,6 +29,8 @@ export function CreateForm() {
   const [publishError, setPublishError] = useState<string | null>(null);
   const [captchaToken, setCaptchaToken] = useState("");
   const [honey, setHoney] = useState("");
+  const [published, setPublished] = useState<{ slug: string; editToken: string } | null>(null);
+  const [copied, setCopied] = useState<"share" | "edit" | null>(null);
   const router = useRouter();
 
   const cfg: MemorialConfig = useMemo(
@@ -60,7 +62,7 @@ export function CreateForm() {
     setPublishing(true);
     setPublishError(null);
     try {
-      const { slug } = await createPage({
+      const result = await createPage({
         mode,
         gender,
         relationship: { en: relEn.trim(), ar: relAr.trim() },
@@ -70,11 +72,24 @@ export function CreateForm() {
         turnstileToken: captchaToken,
         honeypot: honey,
       });
-      router.push(`/p/${slug}`);
+      setPublished({ slug: result.slug, editToken: result.editToken });
     } catch (e) {
       setPublishError((e as Error).message);
+    } finally {
       setPublishing(false);
     }
+  }
+
+  async function copyTo(kind: "share" | "edit", text: string) {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(kind);
+      setTimeout(() => setCopied(null), 1800);
+    } catch {}
+  }
+
+  function viewPage() {
+    if (published) router.push(`/p/${published.slug}`);
   }
 
   return (
@@ -184,33 +199,46 @@ export function CreateForm() {
               {publishError}
             </div>
           )}
-          <input
-            type="text"
-            name={HONEYPOT_FIELD}
-            value={honey}
-            onChange={(e) => setHoney(e.target.value)}
-            tabIndex={-1}
-            autoComplete="off"
-            aria-hidden="true"
-            className={HONEYPOT_STYLE}
-          />
-          <Turnstile onToken={setCaptchaToken} className="mb-3" />
-          <button
-            type="button"
-            onClick={publish}
-            disabled={!canPublish}
-            className="w-full px-5 py-3 rounded-full bg-emerald text-white font-medium hover:bg-emerald-deep disabled:bg-emerald/30 disabled:cursor-not-allowed transition-colors"
-          >
-            {publishing ? "Publishing…" : (
-              <>
-                Publish &amp; share <span className="opacity-80">|</span>{" "}
-                <span className="font-arabic">اِنْشُرْ وَشَارِكْ</span>
-              </>
-            )}
-          </button>
-          <p className="text-xs text-ink/50 mt-2">
-            You&apos;ll get a private link to share with family. No account needed.
-          </p>
+
+          {published ? (
+            <SuccessPanel
+              slug={published.slug}
+              editToken={published.editToken}
+              copied={copied}
+              onCopy={copyTo}
+              onView={viewPage}
+            />
+          ) : (
+            <>
+              <input
+                type="text"
+                name={HONEYPOT_FIELD}
+                value={honey}
+                onChange={(e) => setHoney(e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className={HONEYPOT_STYLE}
+              />
+              <Turnstile onToken={setCaptchaToken} className="mb-3" />
+              <button
+                type="button"
+                onClick={publish}
+                disabled={!canPublish}
+                className="w-full px-5 py-3 rounded-full bg-emerald text-white font-medium hover:bg-emerald-deep disabled:bg-emerald/30 disabled:cursor-not-allowed transition-colors"
+              >
+                {publishing ? "Publishing…" : (
+                  <>
+                    Publish &amp; share <span className="opacity-80">|</span>{" "}
+                    <span className="font-arabic">اِنْشُرْ وَشَارِكْ</span>
+                  </>
+                )}
+              </button>
+              <p className="text-xs text-ink/50 mt-2">
+                You&apos;ll get a private link to share with family. No account needed.
+              </p>
+            </>
+          )}
         </div>
       </aside>
 
@@ -242,6 +270,106 @@ function Field({
       {hint && <span className="block text-xs text-ink/50">{hint}</span>}
       <div className="mt-1.5">{children}</div>
     </label>
+  );
+}
+
+function SuccessPanel({
+  slug,
+  editToken,
+  copied,
+  onCopy,
+  onView,
+}: {
+  slug: string;
+  editToken: string;
+  copied: "share" | "edit" | null;
+  onCopy: (kind: "share" | "edit", text: string) => void;
+  onView: () => void;
+}) {
+  const origin = typeof window !== "undefined" ? window.location.origin : "";
+  const shareUrl = `${origin}/p/${slug}`;
+  // Edit token in URL hash so it never reaches the server in request logs.
+  const editUrl = `${origin}/p/${slug}#edit=${editToken}`;
+
+  return (
+    <div className="space-y-4">
+      <div className="bg-emerald/10 border border-emerald/40 rounded-xl p-4">
+        <p className="font-serif text-lg text-emerald-deep">Your page is live</p>
+        <p className="font-arabic text-emerald-deep text-base mt-1" dir="rtl">
+          صَفْحَتُكَ جَاهِزَة
+        </p>
+      </div>
+
+      {/* Share link (give to family) */}
+      <div>
+        <div className="flex items-baseline justify-between">
+          <label className="text-sm font-medium text-ink/80">
+            Share with family
+          </label>
+          <span className="font-arabic text-gold-deep text-base" dir="rtl">
+            شَارِكْ مَعَ الْعَائِلَة
+          </span>
+        </div>
+        <div className="mt-1.5 flex gap-2">
+          <input
+            readOnly
+            value={shareUrl}
+            onFocus={(e) => e.currentTarget.select()}
+            className="flex-1 px-3 py-2 rounded-lg bg-parchment border border-gold/30 text-ink text-xs"
+          />
+          <button
+            type="button"
+            onClick={() => onCopy("share", shareUrl)}
+            className="shrink-0 px-3 py-2 rounded-lg bg-emerald text-white text-sm font-medium hover:bg-emerald-deep transition-colors"
+          >
+            {copied === "share" ? "Copied" : "Copy"}
+          </button>
+        </div>
+        <p className="text-xs text-ink/50 mt-1.5">
+          Anyone with this link can view and claim sections.
+        </p>
+      </div>
+
+      {/* Edit link (keep for yourself) */}
+      <div>
+        <div className="flex items-baseline justify-between">
+          <label className="text-sm font-medium text-ink/80">
+            Save for yourself{" "}
+            <span className="text-red-500 text-xs">(private)</span>
+          </label>
+          <span className="font-arabic text-gold-deep text-base" dir="rtl">
+            اِحْفَظْهُ لِنَفْسِك
+          </span>
+        </div>
+        <div className="mt-1.5 flex gap-2">
+          <input
+            readOnly
+            value={editUrl}
+            onFocus={(e) => e.currentTarget.select()}
+            className="flex-1 px-3 py-2 rounded-lg bg-parchment border border-gold/30 text-ink text-xs"
+          />
+          <button
+            type="button"
+            onClick={() => onCopy("edit", editUrl)}
+            className="shrink-0 px-3 py-2 rounded-lg bg-gold text-stone-900 text-sm font-bold hover:bg-gold-deep transition-colors"
+          >
+            {copied === "edit" ? "Copied" : "Copy"}
+          </button>
+        </div>
+        <p className="text-xs text-ink/50 mt-1.5 leading-relaxed">
+          This link lets you moderate or delete the page. <strong>Save it now</strong>{" "}
+          (email, password manager, etc.). It will not be shown again.
+        </p>
+      </div>
+
+      <button
+        type="button"
+        onClick={onView}
+        className="w-full px-5 py-3 rounded-full border border-emerald/40 bg-cream text-emerald-deep font-medium hover:bg-emerald hover:text-white transition-colors"
+      >
+        Open your page →
+      </button>
+    </div>
   );
 }
 
