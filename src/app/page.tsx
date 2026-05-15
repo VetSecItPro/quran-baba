@@ -214,7 +214,7 @@ function Step({
 }) {
   return (
     <li className="bg-cream-soft border border-gold/30 rounded-2xl p-5">
-      <div className="w-9 h-9 rounded-full bg-gold text-white flex items-center justify-center font-semibold mb-3">
+      <div className="w-9 h-9 rounded-full bg-gold text-ink flex items-center justify-center font-semibold mb-3">
         {n}
       </div>
       <h3 className="font-serif text-lg font-semibold text-ink">{titleEn}</h3>
