@@ -12,15 +12,15 @@ export function HowToParticipate() {
         </div>
         <p className="text-ink/80 leading-relaxed text-base md:text-lg">
           Each card represents a <strong className="text-emerald-deep">1/4 Hizb</strong> section of
-          the Qur&apos;an. Tap any card to see where to start reading, including the Surah name,
-          Ayah number, and opening words.
+          the Qur&apos;an. Tap any card to see where to start and stop — Surah name, Ayah numbers,
+          and the opening and closing words.
         </p>
         <p
           className="font-arabic text-ink/80 leading-loose text-lg md:text-xl mt-4"
           dir="rtl"
         >
-          كل بطاقة تمثل ربع حزب من القرآن الكريم. اضغط على أي بطاقة لمعرفة مكان بدء القراءة، بما في
-          ذلك اسم السورة ورقم الآية والكلمات الافتتاحية.
+          كل بطاقة تمثل ربع حزب من القرآن الكريم. اضغط على أي بطاقة لمعرفة مكان البداية والنهاية -
+          اسم السورة وأرقام الآيات والكلمات الافتتاحية والختامية.
         </p>
       </div>
     </section>

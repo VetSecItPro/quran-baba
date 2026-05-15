@@ -91,7 +91,7 @@ export function ArabicInput({ value, onChange, placeholder, multiline = false }:
             onKeyUp={rememberCaret}
             onClick={rememberCaret}
             placeholder={placeholder}
-            dir="rtl"
+            dir="auto"
             rows={2}
             className="font-arabic text-lg w-full px-3 py-2 rounded-lg bg-parchment border border-gold/30 text-ink placeholder:text-ink/30 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/30 transition-colors resize-y"
           />
@@ -104,7 +104,7 @@ export function ArabicInput({ value, onChange, placeholder, multiline = false }:
             onKeyUp={rememberCaret}
             onClick={rememberCaret}
             placeholder={placeholder}
-            dir="rtl"
+            dir="auto"
             className="font-arabic text-xl w-full px-3 py-2 rounded-lg bg-parchment border border-gold/30 text-ink placeholder:text-ink/30 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/30 transition-colors"
           />
         )}

@@ -274,31 +274,33 @@ function ClaimForm({
       <div>
         <div className="flex items-baseline justify-between">
           <label className="text-sm font-medium text-ink/80">
-            Your Name <span className="text-red-500">*</span>
+            Your name <span className="text-red-500">*</span>{" "}
+            <span className="text-ink/50 text-xs">(English or Arabic)</span>
           </label>
           <span className="font-arabic text-gold-deep text-base" dir="rtl">
             اسمك
           </span>
         </div>
         <div className="mt-1.5">
-          <ArabicInput value={name} onChange={setName} placeholder="Enter your name | أدخل اسمك" />
+          <ArabicInput value={name} onChange={setName} placeholder="Enter your name · أدخل اسمك" />
         </div>
       </div>
 
       <div className="mt-4">
         <div className="flex items-baseline justify-between">
           <label className="text-sm font-medium text-ink/80">
-            Personal Du&apos;a <span className="text-ink/50">(optional)</span>
+            Personal message <span className="text-ink/50">(optional)</span>{" "}
+            <span className="text-ink/50 text-xs">English or Arabic</span>
           </label>
           <span className="font-arabic text-gold-deep text-base" dir="rtl">
-            دعاء (اختياري)
+            رسالة / دعاء (اختياري)
           </span>
         </div>
         <div className="mt-1.5">
           <ArabicInput
             value={dua}
             onChange={setDua}
-            placeholder="A short du'a or dedication | دعاء قصير أو إهداء"
+            placeholder="A short message, du'a, or dedication · رسالة قصيرة أو دعاء"
             multiline
           />
         </div>
@@ -363,29 +365,40 @@ function ClaimedView({
 }) {
   return (
     <div>
-      <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <p className="text-sm font-medium text-ink/80">
-          {row.completed ? "Completed by" : "Reserved by"}{" "}
-          <span className="text-gold-deep">|</span>{" "}
-          <span className="font-arabic" dir="rtl">
-            {row.completed ? "أتمها" : "احتجزها"}
+      <p className="text-sm font-medium text-ink/70">
+        {row.completed ? "Completed by" : "Reserved by"}{" "}
+        <span className="text-gold-deep">|</span>{" "}
+        <span className="font-arabic" dir="rtl">
+          {row.completed ? "أتمها" : "احتجزها"}
+        </span>
+      </p>
+      <p className="font-serif text-3xl md:text-4xl text-ink mt-1" dir="auto">
+        <span className="font-arabic">{row.claimant_name}</span>
+      </p>
+
+      <div className="mt-4 bg-parchment border border-gold/20 rounded-xl p-4">
+        <p className="text-xs text-ink/50 mb-2 uppercase tracking-wide">
+          Personal message <span className="text-gold-deep">|</span>{" "}
+          <span className="font-arabic normal-case" dir="rtl">
+            رسالة / دعاء
           </span>
         </p>
-      </div>
-      <p className="font-arabic text-2xl text-ink mt-2" dir="auto">
-        {row.claimant_name}
-      </p>
-      {row.claimant_dua && (
-        <div className="mt-3 bg-parchment border border-gold/20 rounded-xl p-3">
-          <p className="text-xs text-ink/50 mb-1">
-            Personal du&apos;a <span className="text-gold-deep">|</span>{" "}
-            <span className="font-arabic" dir="rtl">دعاء</span>
-          </p>
-          <p className="font-arabic text-lg text-ink leading-relaxed" dir="rtl">
+        {row.claimant_dua ? (
+          <p
+            className="font-arabic text-lg md:text-xl text-ink leading-loose"
+            dir="rtl"
+          >
             {row.claimant_dua}
           </p>
-        </div>
-      )}
+        ) : (
+          <p className="text-ink/40 italic text-sm">
+            No personal message <span className="text-gold-deep/60">|</span>{" "}
+            <span className="font-arabic" dir="rtl">
+              لا توجد رسالة
+            </span>
+          </p>
+        )}
+      </div>
 
       <div className="mt-6 flex items-center justify-end gap-3">
         {canControl ? (
