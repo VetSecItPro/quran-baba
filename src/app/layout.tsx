@@ -45,7 +45,8 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="min-h-screen flex flex-col">
+      {/* Inset the page so content never lands under the fixed side ornaments. */}
+      <body className="min-h-screen flex flex-col md:pl-10 md:pr-10 lg:pl-14 lg:pr-14">
         {/* Vertical zellige ornament on each edge - desktop only */}
         <div
           aria-hidden="true"
