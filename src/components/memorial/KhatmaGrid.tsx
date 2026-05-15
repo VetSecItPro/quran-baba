@@ -184,8 +184,11 @@ function SectionCard({ row, onClick }: { row: SectionRow; onClick: () => void })
       className={cardClasses(section.status)}
       aria-label={`Hizb ${section.hizb} ${section.quarter}, ${section.status}`}
     >
-      <span className="text-lg font-semibold leading-none">{section.hizb}</span>
-      <span className="text-sm opacity-80 leading-none mt-1">{section.quarter}</span>
+      <span className="text-[9px] uppercase tracking-wider opacity-70 leading-none">
+        Hizb · <span className="font-arabic normal-case">حزب</span>
+      </span>
+      <span className="text-xl font-semibold leading-none mt-0.5">{section.hizb}</span>
+      <span className="text-sm opacity-80 leading-none mt-0.5">{section.quarter}</span>
       {row.claimant_name && (
         <span
           className="absolute -bottom-2 left-1/2 -translate-x-1/2 max-w-[95%] truncate bg-parchment text-ink border border-gold/40 rounded-full px-2 py-0.5 text-[10px] font-arabic shadow-sm"

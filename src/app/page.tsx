@@ -1,10 +1,20 @@
 import Link from "next/link";
+import { Lantern } from "@/components/ornaments/Lantern";
+import { Rehal } from "@/components/ornaments/Rehal";
+import { ZelligeBand } from "@/components/ornaments/ZelligeBand";
 
 export default function Home() {
   return (
     <main className="bg-cream min-h-screen">
+      {/* Top zellige strip */}
+      <ZelligeBand className="w-full h-6 text-gold-deep/60" />
+
       {/* Hero */}
-      <section className="px-6 pt-16 md:pt-24 pb-16 max-w-4xl mx-auto text-center">
+      <section className="relative px-6 pt-12 md:pt-16 pb-16 max-w-5xl mx-auto text-center">
+        {/* Lanterns flanking the hero */}
+        <Lantern className="hidden md:block absolute left-4 top-6 w-14 h-24 text-gold-deep/55" />
+        <Lantern className="hidden md:block absolute right-4 top-6 w-14 h-24 text-gold-deep/55" />
+
         <p className="font-arabic text-gold-deep text-3xl md:text-4xl leading-none mb-4" dir="rtl">
           ﷽
         </p>
@@ -14,7 +24,11 @@ export default function Home() {
         <p className="font-arabic text-gold-deep text-3xl md:text-4xl mt-3" dir="rtl">
           قرآنٌ لمن تحب
         </p>
-        <p className="text-ink/70 text-lg md:text-xl mt-8 max-w-2xl mx-auto leading-relaxed">
+
+        {/* Rehal (open Qur'an on a reading stand) — gold, sits between title and body */}
+        <Rehal className="mx-auto mt-8 w-28 h-20 md:w-32 md:h-24 text-gold-deep" />
+
+        <p className="text-ink/70 text-lg md:text-xl mt-6 max-w-2xl mx-auto leading-relaxed">
           Create a memorial or wellbeing page in minutes. Family and friends claim sections of the
           Qur&apos;an to read together — at home, abroad, or across generations.
         </p>
@@ -141,6 +155,9 @@ export default function Home() {
         </p>
         <p className="text-ink/40 text-xs mt-4">QuranForBaba · 2026</p>
       </footer>
+
+      {/* Bottom zellige strip */}
+      <ZelligeBand className="w-full h-6 text-gold-deep/60" />
     </main>
   );
 }
