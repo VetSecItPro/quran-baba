@@ -32,10 +32,10 @@ export function getQuarter(hizb: number, quarterInHizb: 1 | 2 | 3 | 4): HizbQuar
 }
 
 export const QUARTER_LABEL_AR: Record<1 | 2 | 3 | 4, string> = {
-  1: "الربع الأول",
-  2: "النصف",
-  3: "الثلاثة أرباع",
-  4: "نهاية الحزب",
+  1: "الرُّبْعُ الْأَوَّل",
+  2: "النِّصْف",
+  3: "الثَّلَاثَةُ أَرْبَاع",
+  4: "نِهَايَةُ الْحِزْب",
 };
 
 export const QUARTER_LABEL_EN: Record<1 | 2 | 3 | 4, string> = {

@@ -10,7 +10,7 @@ export function SiteHeader() {
             QuranForBaba
           </span>
           <span className="font-arabic text-lg text-gold-deep" dir="rtl">
-            قرآن لبابا
+            قُرْآنٌ لِبَابَا
           </span>
         </Link>
         <nav className="flex items-center gap-3">

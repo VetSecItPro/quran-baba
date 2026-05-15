@@ -93,12 +93,12 @@ export function CreateForm() {
           <div className="grid grid-cols-2 gap-2">
             <ModeButton active={mode === "memorial"} onClick={() => setMode("memorial")}>
               <div className="font-medium">In memory</div>
-              <div className="font-arabic text-sm" dir="rtl">في ذكرى</div>
+              <div className="font-arabic text-sm" dir="rtl">فِي ذِكْرَى</div>
               <div className="text-xs opacity-70 mt-1">For someone who has passed</div>
             </ModeButton>
             <ModeButton active={mode === "living"} onClick={() => setMode("living")}>
               <div className="font-medium">For their wellbeing</div>
-              <div className="font-arabic text-sm" dir="rtl">من أجل شفاء</div>
+              <div className="font-arabic text-sm" dir="rtl">مِنْ أَجْلِ شِفَاء</div>
               <div className="text-xs opacity-70 mt-1">For someone living</div>
             </ModeButton>
           </div>
@@ -112,11 +112,11 @@ export function CreateForm() {
           <div className="grid grid-cols-2 gap-2">
             <GenderButton active={gender === "male"} onClick={() => setGender("male")}>
               <div className="font-medium">Male</div>
-              <div className="font-arabic text-sm" dir="rtl">ذكر</div>
+              <div className="font-arabic text-sm" dir="rtl">ذَكَر</div>
             </GenderButton>
             <GenderButton active={gender === "female"} onClick={() => setGender("female")}>
               <div className="font-medium">Female</div>
-              <div className="font-arabic text-sm" dir="rtl">أنثى</div>
+              <div className="font-arabic text-sm" dir="rtl">أُنْثَى</div>
             </GenderButton>
           </div>
         </fieldset>
@@ -204,7 +204,7 @@ export function CreateForm() {
             {publishing ? "Publishing…" : (
               <>
                 Publish &amp; share <span className="opacity-80">|</span>{" "}
-                <span className="font-arabic">انشر وشارك</span>
+                <span className="font-arabic">اِنْشُرْ وَشَارِكْ</span>
               </>
             )}
           </button>

@@ -1,6 +1,6 @@
 export function Footer({ mode }: { mode: "memorial" | "living" }) {
   const tagEn = mode === "memorial" ? "Made with love" : "Made with prayer";
-  const tagAr = mode === "memorial" ? "صُنع بحب" : "صُنع بدعاء";
+  const tagAr = mode === "memorial" ? "صُنِعَ بِحُبّ" : "صُنِعَ بِدُعَاء";
 
   return (
     <footer className="px-6 py-12 border-t border-gold/20 bg-parchment text-center">

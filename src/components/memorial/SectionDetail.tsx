@@ -77,12 +77,12 @@ export function SectionDetail({
               Hizb {section.hizb} · {QUARTER_LABEL_EN[section.quarterInHizb]}
             </h3>
             <p className="font-arabic text-gold-deep text-lg mt-1" dir="rtl">
-              الحزب {section.hizb} · {QUARTER_LABEL_AR[section.quarterInHizb]}
+              الْحِزْب {section.hizb} · {QUARTER_LABEL_AR[section.quarterInHizb]}
             </p>
             <p className="text-xs text-ink/60 mt-1">
               Juz {juz} <span className="text-gold-deep">|</span>{" "}
               <span className="font-arabic" dir="rtl">
-                الجزء {juz}
+                الْجُزْء {juz}
               </span>{" "}
               · Quarter {entry.quarter} of 240
             </p>
@@ -101,7 +101,7 @@ export function SectionDetail({
                 <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5" />
               </svg>
               Read <span className="opacity-80">|</span>{" "}
-              <span className="font-arabic">اقرأ</span>
+              <span className="font-arabic">اِقْرَأْ</span>
             </a>
             <button
               onClick={onClose}
@@ -139,14 +139,14 @@ export function SectionDetail({
           <p className="text-xs text-ink/50 uppercase tracking-wider">
             Reading reference{" "}
             <span className="text-gold-deep">|</span>{" "}
-            <span className="font-arabic" dir="rtl">مرجع القراءة</span>
+            <span className="font-arabic" dir="rtl">مَرْجِعُ الْقِرَاءَة</span>
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 md:[direction:rtl] gap-0">
           <Column
             tag="Start"
-            tagAr="البداية"
+            tagAr="الْبِدَايَة"
             accent="emerald"
             surahAr={entry.start.surahNameAr}
             surahEn={entry.start.surahNameEn}
@@ -154,11 +154,11 @@ export function SectionDetail({
             ayah={entry.start.ayah}
             text={entry.start.text}
             note="Opening words"
-            noteAr="الكلمات الافتتاحية"
+            noteAr="الْكَلِمَاتُ الِافْتِتَاحِيَّة"
           />
           <Column
             tag="End"
-            tagAr="النهاية"
+            tagAr="النِّهَايَة"
             accent="gold"
             surahAr={entry.end.surahNameAr}
             surahEn={entry.end.surahNameEn}
@@ -166,7 +166,7 @@ export function SectionDetail({
             ayah={entry.end.ayah}
             text={entry.end.text}
             note="Closing words"
-            noteAr="الكلمات الختامية"
+            noteAr="الْكَلِمَاتُ الْخِتَامِيَّة"
             divider
           />
         </div>
@@ -278,11 +278,11 @@ function ClaimForm({
             <span className="text-ink/50 text-xs">(English or Arabic)</span>
           </label>
           <span className="font-arabic text-gold-deep text-base" dir="rtl">
-            اسمك
+            اِسْمُكَ
           </span>
         </div>
         <div className="mt-1.5">
-          <ArabicInput value={name} onChange={setName} placeholder="Enter your name · أدخل اسمك" />
+          <ArabicInput value={name} onChange={setName} placeholder="Enter your name · أَدْخِلِ اسْمَكَ" />
         </div>
       </div>
 
@@ -293,14 +293,14 @@ function ClaimForm({
             <span className="text-ink/50 text-xs">English or Arabic</span>
           </label>
           <span className="font-arabic text-gold-deep text-base" dir="rtl">
-            رسالة / دعاء (اختياري)
+            رِسَالَة / دُعَاء (اِخْتِيَارِيّ)
           </span>
         </div>
         <div className="mt-1.5">
           <ArabicInput
             value={dua}
             onChange={setDua}
-            placeholder="A short message, du'a, or dedication · رسالة قصيرة أو دعاء"
+            placeholder="A short message, du'a, or dedication · رِسَالَةٌ قَصِيرَة أَوْ دُعَاء"
             multiline
           />
         </div>
@@ -329,7 +329,7 @@ function ClaimForm({
           className="px-5 py-2.5 rounded-full border border-gold/40 bg-parchment text-ink hover:border-gold transition-colors disabled:opacity-50"
         >
           Cancel <span className="text-gold-deep">|</span>{" "}
-          <span className="font-arabic" dir="rtl">إلغاء</span>
+          <span className="font-arabic" dir="rtl">إِلْغَاء</span>
         </button>
         <button
           type="submit"
@@ -339,7 +339,7 @@ function ClaimForm({
           {busy ? "Claiming…" : (
             <>
               Claim <span className="opacity-80">|</span>{" "}
-              <span className="font-arabic">احجز</span>
+              <span className="font-arabic">اِحْجِزْ</span>
             </>
           )}
         </button>
@@ -369,7 +369,7 @@ function ClaimedView({
         {row.completed ? "Completed by" : "Reserved by"}{" "}
         <span className="text-gold-deep">|</span>{" "}
         <span className="font-arabic" dir="rtl">
-          {row.completed ? "أتمها" : "احتجزها"}
+          {row.completed ? "أَتَمَّهَا" : "اِحْتَجَزَهَا"}
         </span>
       </p>
       <p className="font-serif text-3xl md:text-4xl text-ink mt-1" dir="auto">
@@ -380,7 +380,7 @@ function ClaimedView({
         <p className="text-xs text-ink/50 mb-2 uppercase tracking-wide">
           Personal message <span className="text-gold-deep">|</span>{" "}
           <span className="font-arabic normal-case" dir="rtl">
-            رسالة / دعاء
+            رِسَالَة / دُعَاء
           </span>
         </p>
         {row.claimant_dua ? (
@@ -394,7 +394,7 @@ function ClaimedView({
           <p className="text-ink/40 italic text-sm">
             No personal message <span className="text-gold-deep/60">|</span>{" "}
             <span className="font-arabic" dir="rtl">
-              لا توجد رسالة
+              لَا تُوجَدُ رِسَالَة
             </span>
           </p>
         )}
@@ -410,7 +410,7 @@ function ClaimedView({
               className="px-5 py-2.5 rounded-full border border-gold/40 bg-parchment text-ink hover:border-gold transition-colors disabled:opacity-50"
             >
               Release <span className="text-gold-deep">|</span>{" "}
-              <span className="font-arabic" dir="rtl">إلغاء الحجز</span>
+              <span className="font-arabic" dir="rtl">إِلْغَاءُ الْحَجْز</span>
             </button>
             {!row.completed && (
               <button
@@ -422,7 +422,7 @@ function ClaimedView({
                 {busy ? "Saving…" : (
                   <>
                     Mark Complete <span className="opacity-80">|</span>{" "}
-                    <span className="font-arabic">أتممت</span>
+                    <span className="font-arabic">أَتْمَمْتُ</span>
                   </>
                 )}
               </button>
@@ -435,7 +435,7 @@ function ClaimedView({
             className="px-5 py-2.5 rounded-full border border-gold/40 bg-parchment text-ink hover:border-gold transition-colors"
           >
             Close <span className="text-gold-deep">|</span>{" "}
-            <span className="font-arabic" dir="rtl">إغلاق</span>
+            <span className="font-arabic" dir="rtl">إِغْلَاق</span>
           </button>
         )}
       </div>

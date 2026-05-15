@@ -168,7 +168,7 @@ export function KhatmaGrid({ slug, clean = false, seed = 7 }: Props) {
         Tap any card to view the starting and ending points{" "}
         <span className="ornament">✦</span>{" "}
         <span className="font-arabic" dir="rtl">
-          اضغط على أي بطاقة لعرض البداية والنهاية
+          اِضْغَطْ عَلَى أَيِّ بِطَاقَةٍ لِعَرْضِ الْبِدَايَةِ وَالنِّهَايَة
         </span>
       </p>
     </section>
@@ -185,7 +185,7 @@ function SectionCard({ row, onClick }: { row: SectionRow; onClick: () => void })
       aria-label={`Hizb ${section.hizb} ${section.quarter}, ${section.status}`}
     >
       <span className="text-[10px] tracking-wide opacity-70 leading-none">
-        Hizb · <span className="font-arabic">حزب</span>
+        Hizb · <span className="font-arabic">حِزْب</span>
       </span>
       <span className="text-xl font-semibold leading-none mt-0.5">{section.hizb}</span>
       <span className="text-sm opacity-80 leading-none mt-0.5">{section.quarter}</span>
@@ -226,7 +226,7 @@ function ProgressCard({
         <div>
           <h2 className="font-serif text-2xl font-semibold text-ink">Khatma Progress</h2>
           <p className="font-arabic text-gold-deep text-lg mt-1" dir="rtl">
-            تقدم الختمة
+            تَقَدُّمُ الْخَتْمَة
           </p>
         </div>
         <div className="text-right">
@@ -239,7 +239,7 @@ function ProgressCard({
           <p className="text-sm text-ink/60 mt-2">
             sections completed <span className="text-gold-deep">|</span>{" "}
             <span className="font-arabic" dir="rtl">
-              أقسام مكتملة
+              أَقْسَامٌ مُكْتَمِلَة
             </span>
           </p>
         </div>
@@ -262,9 +262,9 @@ function ProgressCard({
       </div>
 
       <div className="flex flex-wrap gap-x-6 gap-y-2 mt-5 text-sm md:text-base text-ink/70">
-        <LegendDot color="var(--gold-soft)" count={available} en="Open" ar="متاح" />
-        <LegendDot color="var(--gold)" count={claimed} en="Claimed" ar="محجوز" />
-        <LegendDot color="var(--emerald)" count={completed} en="Done" ar="مكتمل" />
+        <LegendDot color="var(--gold-soft)" count={available} en="Open" ar="مُتَاح" />
+        <LegendDot color="var(--gold)" count={claimed} en="Claimed" ar="مَحْجُوز" />
+        <LegendDot color="var(--emerald)" count={completed} en="Done" ar="مُكْتَمِل" />
       </div>
     </div>
   );

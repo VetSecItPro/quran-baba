@@ -12,11 +12,11 @@ export function Message({ mode, relationship, gender }: Props) {
       ? `In loving memory of our beloved ${relationship.en}, we invite family and friends to join us in completing a collective Qur'an recitation (Khatma) during this blessed period.`
       : `In love and prayer for our beloved ${relationship.en}, we invite family and friends to join us in completing a collective Qur'an recitation (Khatma) for healing and blessings.`;
 
-  const beloved = gender === "female" ? "الحبيبة" : "الحبيب";
+  const beloved = gender === "female" ? "الْحَبِيبَة" : "الْحَبِيب";
   const ar =
     mode === "memorial"
-      ? `في ذكرى ${relationship.ar} ${beloved}، ندعو الأهل والأصدقاء للمشاركة في ختمة قرآنية جماعية خلال هذه الفترة المباركة.`
-      : `محبةً ودعاءً ل${relationship.ar} ${beloved}، ندعو الأهل والأصدقاء للمشاركة في ختمة قرآنية جماعية للشفاء والبركة.`;
+      ? `فِي ذِكْرَى ${relationship.ar} ${beloved}، نَدْعُو الْأَهْلَ وَالْأَصْدِقَاءَ لِلْمُشَارَكَةِ فِي خَتْمَةٍ قُرْآنِيَّةٍ جَمَاعِيَّةٍ خِلَالَ هَذِهِ الْفَتْرَةِ الْمُبَارَكَة.`
+      : `مَحَبَّةً وَدُعَاءً لِ${relationship.ar} ${beloved}، نَدْعُو الْأَهْلَ وَالْأَصْدِقَاءَ لِلْمُشَارَكَةِ فِي خَتْمَةٍ قُرْآنِيَّةٍ جَمَاعِيَّةٍ لِلشِّفَاءِ وَالْبَرَكَة.`;
 
   return (
     <section className="bg-parchment border-y border-gold/20 px-6 py-10">
@@ -31,7 +31,7 @@ export function Message({ mode, relationship, gender }: Props) {
           reward and blessings for all who participate.
         </p>
         <p className="font-arabic text-ink/70 mt-3 text-base md:text-lg" dir="rtl">
-          يمكن لكل مشارك اختيار قسم أو أكثر أدناه. تقبّل الله من جميع من شارك.
+          يُمْكِنُ لِكُلِّ مُشَارِكٍ اِخْتِيَارُ قِسْمٍ أَوْ أَكْثَرَ أَدْنَاه. تَقَبَّلَ اللَّهُ مِنْ جَمِيعِ مَنْ شَارَكَ.
         </p>
       </div>
     </section>

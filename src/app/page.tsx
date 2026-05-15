@@ -54,20 +54,20 @@ export default function Home() {
             className="px-8 py-3 rounded-full bg-emerald text-white font-medium text-lg hover:bg-emerald-deep transition-colors"
           >
             Create a page <span className="opacity-80">|</span>{" "}
-            <span className="font-arabic">أنشئ صفحة</span>
+            <span className="font-arabic">أَنْشِئْ صَفْحَة</span>
           </Link>
           <a
             href="#how"
             className="px-6 py-3 rounded-full border border-gold/40 bg-parchment text-ink hover:border-gold transition-colors"
           >
             How it works <span className="text-gold-deep">|</span>{" "}
-            <span className="font-arabic">كيف تعمل</span>
+            <span className="font-arabic">كَيْفَ تَعْمَل</span>
           </a>
         </div>
 
         <p className="text-xs text-ink/50 mt-6">
           Free · No account needed · No tracking <span className="text-gold-deep">|</span>{" "}
-          <span className="font-arabic" dir="rtl">مجاني · بدون حساب · بدون تتبع</span>
+          <span className="font-arabic" dir="rtl">مَجَّانِيّ · بِدُونِ حِسَاب · بِدُونِ تَتَبُّع</span>
         </p>
       </section>
 
@@ -76,21 +76,21 @@ export default function Home() {
         <div className="max-w-5xl mx-auto grid gap-6 md:grid-cols-3">
           <ValueProp
             titleEn="For the departed"
-            titleAr="لمن رحلوا"
+            titleAr="لِمَنْ رَحَلُوا"
             bodyEn="Gather the family to complete a khatma in memory of a parent, grandparent, sibling, or friend who has passed."
-            bodyAr="اجمع العائلة لإتمام ختمة قرآنية في ذكرى والد أو والدة أو جد أو صديق رحل."
+            bodyAr="اِجْمَعِ الْعَائِلَةَ لِإِتْمَامِ خَتْمَةٍ قُرْآنِيَّةٍ فِي ذِكْرَى وَالِدٍ أَوْ وَالِدَةٍ أَوْ جَدٍّ أَوْ صَدِيقٍ رَحَلَ."
           />
           <ValueProp
             titleEn="For the living"
-            titleAr="للأحياء"
+            titleAr="لِلْأَحْيَاء"
             bodyEn="Recite on behalf of a loved one recovering from illness, or for any soul in need of du'a and blessings."
-            bodyAr="اقرأ نيابة عن حبيب يتعافى من مرض، أو لأي روح بحاجة إلى الدعاء والبركة."
+            bodyAr="اِقْرَأْ نِيَابَةً عَنْ حَبِيبٍ يَتَعَافَى مِنْ مَرَضٍ، أَوْ لِأَيِّ رُوحٍ بِحَاجَةٍ إِلَى الدُّعَاءِ وَالْبَرَكَة."
           />
           <ValueProp
             titleEn="Together, anywhere"
-            titleAr="معًا، أينما كنتم"
+            titleAr="مَعًا، أَيْنَمَا كُنْتُم"
             bodyEn="240 sections to share. Each card has its exact starting and ending verses, with a one-tap link to read on Quran.com."
-            bodyAr="٢٤٠ قسمًا للمشاركة. كل بطاقة بداية ونهاية الآيات، مع رابط مباشر للقراءة على Quran.com."
+            bodyAr="٢٤٠ قِسْمًا لِلْمُشَارَكَة. كُلُّ بِطَاقَةٍ بِدَايَةٌ وَنِهَايَةُ الْآيَات، مَعَ رَابِطٍ مُبَاشِرٍ لِلْقِرَاءَةِ عَلَى Quran.com."
           />
         </div>
       </section>
@@ -101,30 +101,30 @@ export default function Home() {
           How it works
         </h2>
         <p className="font-arabic text-gold-deep text-2xl md:text-3xl mt-1 text-center" dir="rtl">
-          كيف تعمل
+          كَيْفَ تَعْمَل
         </p>
 
         <ol className="mt-10 grid gap-4 md:grid-cols-3">
           <Step
             n={1}
             titleEn="Create the page"
-            titleAr="أنشئ الصفحة"
+            titleAr="أَنْشِئِ الصَّفْحَة"
             bodyEn="Enter the relationship, name, and dates, in English and Arabic."
-            bodyAr="أدخل صلة القرابة والاسم والتواريخ بالإنجليزية والعربية."
+            bodyAr="أَدْخِلْ صِلَةَ الْقَرَابَةِ وَالِاسْمَ وَالتَّوَارِيخَ بِالْإِنْجِلِيزِيَّةِ وَالْعَرَبِيَّة."
           />
           <Step
             n={2}
             titleEn="Share the link"
-            titleAr="شارك الرابط"
+            titleAr="شَارِكِ الرَّابِط"
             bodyEn="You get a private URL. Send it to family and friends however you like."
-            bodyAr="ستحصل على رابط خاص. أرسله للأهل والأصدقاء كيفما تشاء."
+            bodyAr="سَتَحْصُلُ عَلَى رَابِطٍ خَاصّ. أَرْسِلْهُ لِلْأَهْلِ وَالْأَصْدِقَاءِ كَيْفَمَا تَشَاء."
           />
           <Step
             n={3}
             titleEn="Read together"
-            titleAr="اقرأوا معًا"
+            titleAr="اِقْرَأُوا مَعًا"
             bodyEn="Everyone claims a section, reads it, and marks it complete. The page tracks the whole khatma in real time."
-            bodyAr="يختار كلٌّ قسمًا، يقرأه، ثم يضع علامة إتمام. الصفحة تتابع الختمة كاملةً في الوقت الفعلي."
+            bodyAr="يَخْتَارُ كُلٌّ قِسْمًا، يَقْرَأُهُ، ثُمَّ يَضَعُ عَلَامَةَ إِتْمَام. الصَّفْحَةُ تُتَابِعُ الْخَتْمَةَ كَامِلَةً فِي الْوَقْتِ الْفِعْلِيّ."
           />
         </ol>
 
@@ -134,7 +134,7 @@ export default function Home() {
             className="inline-block px-8 py-3 rounded-full bg-emerald text-white font-medium text-lg hover:bg-emerald-deep transition-colors"
           >
             Start your page <span className="opacity-80">|</span>{" "}
-            <span className="font-arabic">ابدأ صفحتك</span>
+            <span className="font-arabic">اِبْدَأْ صَفْحَتَك</span>
           </Link>
         </div>
       </section>
