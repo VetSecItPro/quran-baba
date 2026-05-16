@@ -126,21 +126,21 @@ export function ArabicInput({ value, onChange, placeholder, multiline = false }:
           dir="rtl"
         >
           {ROWS.map((row, i) => (
-            <div key={i} className="flex gap-1.5 justify-center mb-1.5">
+            <div key={i} className="flex gap-1 justify-center mb-1">
               {row.map((k) => (
                 <KeyButton key={k} onClick={() => insert(shift ? SHIFT_MAP[k] ?? k : k)}>
-                  <span className="font-arabic text-xl">
+                  <span className="font-arabic text-base sm:text-xl">
                     {shift ? SHIFT_MAP[k] ?? k : k}
                   </span>
                 </KeyButton>
               ))}
             </div>
           ))}
-          <div className="flex gap-1.5 justify-center">
+          <div className="flex gap-1 justify-center">
             <KeyButton onClick={() => setShift((s) => !s)} wide active={shift}>
               {shift ? "أبجد" : "حركات"}
             </KeyButton>
-            <KeyButton onClick={space} className="flex-1">
+            <KeyButton onClick={space} className="flex-[2]">
               ⎵
             </KeyButton>
             <KeyButton onClick={backspace} wide>
@@ -174,7 +174,9 @@ function KeyButton({
       type="button"
       onMouseDown={(e) => e.preventDefault()}
       onClick={onClick}
-      className={`${wide ? "px-3" : "w-9"} h-10 rounded-md border text-ink transition-colors ${
+      className={`${
+        wide ? "px-2 shrink-0 text-sm" : "flex-1 min-w-0"
+      } h-10 rounded-md border text-ink transition-colors ${
         active
           ? "bg-emerald text-white border-emerald"
           : "bg-parchment border-gold/30 hover:border-gold"
